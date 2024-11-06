@@ -14,4 +14,10 @@ add_executable(Exam main.c
         euler_increments.c
         euler_increments.h
         tests.c
-        tests.h)
+        tests.h
+        milstein_corrections.c
+        milstein_corrections.h
+        milstein.c
+        milstein.h
+        derivative.c
+        derivative.h)

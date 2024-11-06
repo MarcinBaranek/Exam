@@ -8,10 +8,10 @@
 
 double diffusion_increment(const struct Point input, const double dt)
 {
-    return sqrt(dt) * (normal_random() * diffusion(input));
+    return sqrt(dt) * normal_random() * diffusion(input);
 }
 
 double drift_increment(const struct Point input, const double dt)
 {
-    return dt * drift(input);
+    return drift(input) * dt;
 }

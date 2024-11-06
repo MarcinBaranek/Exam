@@ -5,7 +5,7 @@
 #include "domain.h"
 #include "euler_increments.h"
 
-struct Point eulers_next_point(const struct Point* input, const struct EulerOptions options)
+struct Point euler_next_point(const struct Point* input, const struct EulerOptions options)
 {
     struct Point result;
     result.time = input->time + options.dt;
@@ -18,9 +18,10 @@ struct Point eulers_next_point(const struct Point* input, const struct EulerOpti
 struct Point eluer_last_point(const struct Point initial_point, const struct EulerOptions options)
 {
     struct Point result = initial_point;
-    for (int i =0; i < options.number_of_steps; i++)
+    int i = 0;
+    for (i =0; i < options.number_of_steps; i++)
     {
-        result = eulers_next_point(&result, options);
+        result = euler_next_point(&result, options);
     }
     return result;
 }
