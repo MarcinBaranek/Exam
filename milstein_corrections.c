@@ -3,8 +3,12 @@
 //
 
 #include "milstein_corrections.h"
+
+#include <math.h>
+
 #include "domain.h"
 #include "derivative.h"
+#include "random.h"
 
 double milstein_corrections(const struct Point input, const double dt, const double dw)
 {
@@ -13,6 +17,6 @@ double milstein_corrections(const struct Point input, const double dt, const dou
 
 double milstein_diffusion_increment(const struct Point input, const double dt)
 {
-    // TODO FIX ME
-    return 0;
+    double dw = sqrt(dt) * normal_random();
+    return milstein_corrections(input, dt, dw) + dw * diffusion(input);
 }

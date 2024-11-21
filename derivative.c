@@ -6,5 +6,7 @@
 
 double derivative(const struct Point input, const double dt)
 {
-    return 0;
+    struct Point point = input;
+    point.space_variable += dt;
+    return (diffusion(point) - diffusion(input)) / dt;
 }
