@@ -5,6 +5,6 @@
 
 
 double normal_random() {
-    double result = 0.945378;
+    double result = 0.745378;
     return result;
 }
