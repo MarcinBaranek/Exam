@@ -43,22 +43,22 @@ void test_euler_last_point()
 void test_derivative()
 {
     printf("Testing derivative:\t");
-    printf("%f\n", derivative(TEST_POINT, 0.1));
+    printf("%f\n", derivative(TEST_POINT, 0.03));
 }
 
 
 void test_milstein_diffusion_increment()
 {
     printf("Testing Milstein diffusion increment:\t");
-    printf("%f\n", milstein_diffusion_increment(TEST_POINT, 0.1));
+    printf("%f\n", milstein_diffusion_increment(TEST_POINT, 0.19));
 }
 
 void test_milstein_last_point()
 {
     struct MilsteinOptions options;
-    options.dt = 0.1;
-    options.initial_time = 0.;
-    options.number_of_steps = 7;
+    options.dt = 0.17;
+    options.initial_time = 0.3;
+    options.number_of_steps = 13;
     struct Point last_point = milstein_last_point(TEST_POINT, options);
     printf("Testing Milstein Last time:\t\t");
     printf("%f\n", last_point.time);
@@ -69,12 +69,12 @@ void test_milstein_last_point()
 
 void all_tests()
 {
-    test_drift_increment();
-    test_diffusion_increment();
-    test_euler_last_point();
+    // test_drift_increment();
+    // test_diffusion_increment();
+    // test_euler_last_point();
     // printf("===========================");
     // printf("===========================\n");
-    // test_derivative();
-    // test_milstein_diffusion_increment();
-    // test_milstein_last_point();
+    test_derivative();
+    test_milstein_diffusion_increment();
+    test_milstein_last_point();
 }

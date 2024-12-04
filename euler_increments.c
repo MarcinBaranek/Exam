@@ -3,13 +3,15 @@
 //
 #include "domain.h"
 #include "euler_increments.h"
+#include <math.h>
+#include "random.h"
 
 double diffusion_increment(const struct Point input, const double dt)
 {
-    return 0.1;
+    return sqrt(dt) * normal_random() * diffusion(input);
 }
 
 double drift_increment(const struct Point input, const double dt)
 {
-    return 0.3;
+    return drift(input) * dt;
 }
